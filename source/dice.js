@@ -35,7 +35,6 @@ const makeDice = (ver=10,hor=10,invert=false,elem=".jdie",rollonclick=true) => {
 }
 
 const makeDie = (canvas,invert=false,rollonclick=true) => {
-    //document.write("<canvas id='' height='10' width='10'></canvas>");
     let ctx = canvas.getContext('2d');
     let h=canvas.height, w=canvas.width, d=h<w?h:w
     b=0.01*d>=0.5?0.01*d:0.5;
