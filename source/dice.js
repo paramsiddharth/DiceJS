@@ -44,7 +44,7 @@ const makeDie = (canvas,invert=false,rollonclick=true) => {
     dcl='#000000';
     if (invert)
         [bgcl,dcl]=[dcl,bgcl];
-    canvas.style = 'border:'+b+'px solid'+dcl+';border-radius:'+br+'px';
+    canvas.style = 'border:'+b+'px solid'+dcl+';border-radius:'+br+'px;';
     if (rollonclick) {
         canvas.onclick = ()=>{rollDie(canvas,invert)};
     } else {
