@@ -1,0 +1,95 @@
+code {
+    background-color: #fcf2f9;
+    border-radius: 2px;
+    padding: 0 4px;
+}
+
+.code, .mcode {
+    background-color: #f4fcf2;
+    border-radius: 5px;
+    padding: 4px 2px;
+    max-height: 200px;
+    overflow: auto;
+    margin: 14px auto;
+    width: 95%;
+}
+
+.outputbox {
+    background-color: #F8F8F8;
+    border-radius: 10px;
+    border: 1px solid #333333;
+    padding: 5px;
+    overflow: auto;
+    min-height: 30px;
+    max-height: 150px;
+    margin: 14px auto;
+    width: 95%;
+}
+
+.code code {
+    background-color: inherit;
+}
+
+.mcode {
+    background-color: #fcf2f9;
+}
+
+.params {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.params li {
+    margin: 7px 0;
+}
+
+.prot {
+    display: block;
+    margin: 10px 0;
+}
+
+code a {
+    text-decoration: none;
+    color: red;
+}
+
+#examples li {
+    margin: 15px 0;
+}
+
+@keyframes sweey {
+    0% {opacity:1}
+    100% {opacity:0.5}
+}
+
+#hrt {
+    animation: sweey 1s linear 2s infinite alternate;
+}
+
+footer {
+    border-top: 1px solid #AAAAAA;
+    padding-top: 8px;
+    min-height: 40px;
+}
+
+footer p {
+    width: 80%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+@keyframes colours {
+    0% {color: #FF0000;}
+    33% {color: #FF0000;}
+    34% {color: #00AA00;}
+    66% {color: #00AA00;}
+    67% {color: #0000FF;}
+    99% {color: #0000FF}
+}
+
+#myLink, #myLink:hover, #myLink:active, #myLink:visited {
+    text-decoration: none;
+    color: #000000;
+    animation: colours 3s linear 0s infinite;
+}
