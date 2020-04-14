@@ -1,5 +1,5 @@
 # DiceJS
-DiceJS is a free JavaScript plugin to simulate dice in webpages. Its only dependancies are JavaScript (ES6 and later) and HTML canvases.
+DiceJS is a free JavaScript plugin to simulate six-sided dice in webpages. Its only dependancies are JavaScript (ES6 and later) and HTML canvases.
 
 Check the [Documentation](https://paramsiddharth.github.io/DiceJS/) out to learn more on how to use it.
 
