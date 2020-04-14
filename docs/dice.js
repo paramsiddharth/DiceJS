@@ -1,4 +1,4 @@
-const makeDice = (ver=10,hor=10,invert=false,elem=".jdie",rollonclick=true) => {
+const makeDice = (ver=10,hor=10,invert=false,elem=".jdie",rollonclick=true,bgcl='#FFFFFF',dcl='#000000') => {
     if (elem.length>0 && elem.charAt(0)=='.') {
     let elemclass = elem.slice(1);
     let el = document.getElementsByClassName(elemclass),res=[];
@@ -8,7 +8,7 @@ const makeDice = (ver=10,hor=10,invert=false,elem=".jdie",rollonclick=true) => {
         child.width=hor;
         child.style.display='inline';
         e.append(child);
-        res.push(makeDie(child,invert,rollonclick));//e.lastChild
+        res.push(makeDie(child,invert,rollonclick,bgcl,dcl));//e.lastChild
     }
     return res;
     } else if (elem.length>0 && elem.charAt(0)=='#') {
@@ -19,7 +19,7 @@ const makeDice = (ver=10,hor=10,invert=false,elem=".jdie",rollonclick=true) => {
     child.width=hor;
     child.style.display='inline';
     e.append(child);
-    return makeDie(child,invert,rollonclick);
+    return makeDie(child,invert,rollonclick,bgcl,dcl);
     } else if (elem.length>0) {
     let el = document.getElementsByTagName(elem),res=[];
     for (let e of el) {
@@ -28,33 +28,31 @@ const makeDice = (ver=10,hor=10,invert=false,elem=".jdie",rollonclick=true) => {
         child.width=hor;
         child.style.display='inline';
         e.append(child);
-        res.push(makeDie(child,invert,rollonclick));//e.lastChild
+        res.push(makeDie(child,invert,rollonclick,bgcl,dcl));
     }
     return res;
     }
 }
 
-const makeDie = (canvas,invert=false,rollonclick=true) => {
-    //document.write("<canvas id='' height='10' width='10'></canvas>");
+const makeDie = (canvas,invert=false,rollonclick=true,bgcl='#FFFFFF',dcl='#000000') => {
     let ctx = canvas.getContext('2d');
     let h=canvas.height, w=canvas.width, d=h<w?h:w
     b=0.01*d>=0.5?0.01*d:0.5;
     br=0.1*d>=1?0.1*d:1;
-    let bgcl='#FFFFFF',
-    dcl='#000000';
     if (invert)
         [bgcl,dcl]=[dcl,bgcl];
-    canvas.style = 'border:'+b+'px solid'+dcl+';border-radius:'+br+'px';
+    canvas.style = 'border:'+b+'px solid '+dcl+';border-radius:'+br+'px;';
+    console.log(canvas.style.border)
     if (rollonclick) {
-        canvas.onclick = ()=>{rollDie(canvas,invert)};
+        canvas.onclick = ()=>{rollDie(canvas,bgcl,dcl)};
     } else {
         canvas.onclick = undefined;
     }
-    rollDie(canvas,invert);
-    return {element: canvas, roll: ()=>{rollDie(canvas,invert);}};
+    rollDie(canvas,bgcl,dcl);
+    return {element: canvas, roll: ()=>{rollDie(canvas,bgcl,dcl);}};
 };
 
-const rollDie = (canvas,invert=false) => {
+const rollDie = (canvas,bgcl='#FFFFFF',dcl='#000000') => {
     let dots = [
         [0.25,0.25], //0,Top-Left
         [0.5,0.25], //1,Top-Centre
@@ -77,10 +75,6 @@ const rollDie = (canvas,invert=false) => {
     let h=canvas.height, w=canvas.width, d=h<w?h:w
     r=0.08*d>=0.1?0.08*d:0.1
     ctx=canvas.getContext('2d');
-    let bgcl='#FFFFFF',
-    dcl='#000000';
-    if (invert)
-        [bgcl,dcl]=[dcl,bgcl];
     ctx.clearRect(0,0,w,h);
     ctx.beginPath();
     ctx.fillStyle = bgcl;
