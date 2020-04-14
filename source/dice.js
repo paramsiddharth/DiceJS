@@ -31,7 +31,7 @@ const makeDice = (ver=10,hor=10,invert=false,elem=".jdie",rollonclick=true) => {
         res.push(makeDie(child,invert,rollonclick));//e.lastChild
     }
     return res;
-    }
+    } 
 }
 
 const makeDie = (canvas,invert=false,rollonclick=true) => {
