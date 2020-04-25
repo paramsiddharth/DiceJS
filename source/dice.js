@@ -44,12 +44,12 @@ const makeDie = (canvas,invert=false,rollonclick=true,bgcl='#FFFFFF',dcl='#00000
     canvas.style = 'border:'+b+'px solid '+dcl+';border-radius:'+br+'px;';
     console.log(canvas.style.border)
     if (rollonclick) {
-        canvas.onclick = ()=>{rollDie(canvas,bgcl,dcl)};
+        canvas.onclick = ()=>{return rollDie(canvas,bgcl,dcl);};
     } else {
         canvas.onclick = undefined;
     }
     rollDie(canvas,bgcl,dcl);
-    return {element: canvas, roll: ()=>{rollDie(canvas,bgcl,dcl);}};
+    return {element: canvas, roll: ()=>{return rollDie(canvas,bgcl,dcl);}};
 };
 
 const rollDie = (canvas,bgcl='#FFFFFF',dcl='#000000') => {
